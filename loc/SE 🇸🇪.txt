@@ -1,0 +1,1 @@
+vless://038a8726-9d1a-4245-be1f-fbd1f8f1fd44@shield.zdshop.ir:2053?encryption=none&security=tls&sni=sens.certhost.ir&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=sens.certhost.ir&path=%2F#%3E%3E%40v2ray_configs_pool%3A%3ASE
