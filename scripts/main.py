@@ -45,7 +45,8 @@ TELEGRAM_URLS = [
     "https://t.me/s/outlinevpnofficial", "https://t.me/s/v2rayngvpn", "https://t.me/s/V2raNG_DA",
     "https://t.me/s/V2rayNg_madam", "https://t.me/s/v2boxxv2rayng", "https://t.me/s/configshub2",
     "https://t.me/s/v2ray_configs_pool", "https://t.me/s/hope_net", "https://t.me/s/everydayvpn",
-    "https://t.me/s/v2nodes", "https://t.me/s/shadowproxy66", "https://t.me/s/free_nettm"
+    "https://t.me/s/v2nodes", "https://t.me/s/shadowproxy66", "https://t.me/s/free_nettm", "https://t.me/s/wiki_tajrobe", "https://t.me/s/V2ray20261", "https://t.me/s/argooo_vpnn", "https://t.me/s/vmessiraan",
+    "https://t.me/s/AzadNet", 
 ]
 
 SEND_TO_TELEGRAM = os.getenv('SEND_TO_TELEGRAM', 'false').lower() == 'true'
@@ -335,4 +336,5 @@ def main():
 
     logging.info("--- V2Ray Extractor finished successfully! ---")
 if __name__ == "__main__":
+
     main()
