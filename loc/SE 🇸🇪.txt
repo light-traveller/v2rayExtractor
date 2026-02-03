@@ -1,1 +1,2 @@
-vless://038a8726-9d1a-4245-be1f-fbd1f8f1fd44@shield.zdshop.ir:2053?encryption=none&security=tls&sni=sens.certhost.ir&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=sens.certhost.ir&path=%2F#%3E%3E%40v2ray_configs_pool%3A%3ASE
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpBUmd2R1p5d0ErZ2FjZ0dWMjZCdm11MDUrd1ptUlcvaitBZFUrWjhCdDQ0PQ==@193.135.174.135:990#%3E%3E%40v2nodes%3A%3ASE
+trojan://T9BpZIVMNv@v1.dabache.top:8443?path=%2Famd&security=tls&insecure=1&host=sweden.vmaxpanel.com&type=ws&allowInsecure=1&sni=sweden.vmaxpanel.com#%3E%3E%40configV2rayNG%3A%3ASE
