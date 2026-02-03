@@ -18,7 +18,7 @@ jobs:
       - name: Checkout Sub-Checker Repository
         uses: actions/checkout@v4
         with:
-          repository: arshiacomplus/sub-checker
+          repository: alirezazahedikermani/sub-checker
           path: sub-checker
 
 
@@ -58,3 +58,4 @@ jobs:
             git push
 
           fi
+
