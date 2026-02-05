@@ -98,7 +98,7 @@ def scrape_configs_from_url(url: str) -> List[str]:
         response = requests.get(url, timeout=20)
         response.raise_for_status()
 
-        channel_name = "@" + url.split("/s/")[1]
+        channel_name = "@" + url.split("/s/")[1] if "/s/" in url else "SUB"
         new_tag = f">>{channel_name}"
 
         soup = BeautifulSoup(response.content, 'html.parser')
