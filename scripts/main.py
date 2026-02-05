@@ -302,7 +302,8 @@ def main():
         logging.info(f"Remaining new unique configs: {len(unique_new_configs)}")
 
     logging.info("Step 3: Merging new and previous configs...")
-    combined_configs = unique_new_configs + previous_configs
+    combined_configs = unique_new_configs 
+    combined_configs2 = unique_new_configs + previous_configs
 
     unique_combined_configs = sorted(list(set(combined_configs)))
     logging.info(f"Total unique configs to be tested: {len(unique_combined_configs)}")
@@ -323,7 +324,7 @@ def main():
     if checked_configs:
         OLDCONFIGS_DIR.mkdir(exist_ok=True)
         oldconfigs_file = OLDCONFIGS_DIR / "configs.txt"
-        oldconfigs_file.write_text("\n".join(checked_configs), encoding="utf-8")
+        oldconfigs_file.write_text("\n".join(combined_configs2), encoding="utf-8")
         logging.info(f"Saved {len(checked_configs)} configs to '{oldconfigs_file}'")
 
     if SEND_TO_TELEGRAM:
@@ -355,3 +356,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
