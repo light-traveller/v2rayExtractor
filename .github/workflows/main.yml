@@ -1,5 +1,10 @@
 name: V2Ray Config Extractor & Checker
 
+on:
+  schedule:
+   - cron: '0 0 * * *'
+  workflow_dispatch:
+
 permissions:
   contents: write
 
@@ -53,5 +58,6 @@ jobs:
             git push
 
           fi
+
 
 
