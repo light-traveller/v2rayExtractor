@@ -45,8 +45,43 @@ TELEGRAM_URLS = [
     "https://t.me/s/outlinevpnofficial", "https://t.me/s/v2rayngvpn", "https://t.me/s/V2raNG_DA",
     "https://t.me/s/V2rayNg_madam", "https://t.me/s/v2boxxv2rayng", "https://t.me/s/configshub2",
     "https://t.me/s/v2ray_configs_pool", "https://t.me/s/hope_net", "https://t.me/s/everydayvpn",
-    "https://t.me/s/v2nodes", "https://t.me/s/shadowproxy66", "https://t.me/s/free_nettm", "https://t.me/s/wiki_tajrobe", "https://t.me/s/V2ray20261", "https://t.me/s/argooo_vpnn", "https://t.me/s/vmessiraan",
-    "https://t.me/s/AzadNet", "https://t.me/s/config_proxy", "https://t.me/s/filtershekan_channel", "https://t.me/s/NETMelliAnti", "https://t.me/s/Outline_ir"
+    "https://t.me/s/v2nodes", "https://t.me/s/shadowproxy66", "https://t.me/s/free_nettm", 
+    "https://t.me/s/wiki_tajrobe", "https://t.me/s/V2ray20261", "https://t.me/s/argooo_vpnn", "https://t.me/s/vmessiraan",
+    "https://t.me/s/AzadNet", "https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/All_Configs_Sub.txt", 
+    "http://t.me/s/persianvpnhub", "https://t.me/s/config_proxy", "https://t.me/s/filtershekan_channel", 
+    "https://t.me/s/NETMelliAnti", "https://t.me/s/Outline_ir""https://t.me/vmesskhodam", 
+    "https://t.me/s/SSRSUB", "https://t.me/s/mtproxy_lists",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/All_Configs_Sub.txt",
+    "https://github.com/sakha1370/OpenRay/raw/refs/heads/main/output/all_valid_proxies.txt",
+    "https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/protocols/vl.txt",
+    "https://raw.githubusercontent.com/yitong2333/proxy-minging/refs/heads/main/v2ray.txt",
+    "https://raw.githubusercontent.com/acymz/AutoVPN/refs/heads/main/data/V2.txt",
+    "https://raw.githubusercontent.com/miladtahanian/V2RayCFGDumper/refs/heads/main/config.txt",
+    "https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_RAW.txt",
+    "https://raw.githubusercontent.com/YasserDivaR/pr0xy/refs/heads/main/ShadowSocks2021.txt",
+    "https://raw.githubusercontent.com/mohamadfg-dev/telegram-v2ray-configs-collector/refs/heads/main/category/vless.txt",
+    "https://raw.githubusercontent.com/mheidari98/.proxy/refs/heads/main/vless",
+    "https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/mixed_iran.txt",
+    "https://raw.githubusercontent.com/mheidari98/.proxy/refs/heads/main/all",
+    "https://github.com/Kwinshadow/TelegramV2rayCollector/raw/refs/heads/main/sublinks/mix.txt",
+    "https://github.com/miladtahanian/Config-Collector/raw/refs/heads/main/vless_iran.txt",
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/refs/heads/main/sub",
+    "https://github.com/MhdiTaheri/V2rayCollector_Py/raw/refs/heads/main/sub/Mix/mix.txt",
+    "https://github.com/MhdiTaheri/V2rayCollector/raw/refs/heads/main/sub/mix",
+    "https://github.com/Argh94/Proxy-List/raw/refs/heads/main/All_Config.txt",
+    "https://raw.githubusercontent.com/shabane/kamaji/master/hub/merged.txt",
+    "https://raw.githubusercontent.com/wuqb2i4f/xray-config-toolkit/main/output/base64/mix-uri",
+    "https://raw.githubusercontent.com/STR97/STRUGOV/refs/heads/main/STR.BYPASS#STR.BYPASS%F0%9F%91%BE",
+    "https://raw.githubusercontent.com/V2RayRoot/V2RayConfig/refs/heads/main/Config/vless.txt",
+    "https://github.com/AvenCores/goida-vpn-configs/raw/refs/heads/main/githubmirror/26.txt",
+    "https://t.me/s/sogoandfuckyourlove", "https://t.me/s/lrnbymaa", "https://t.me/s/Express_freevpn", "https://t.me/s/amookashani",
+    "https://t.me/s/InfoTech_VK", "https://t.me/s/MTproxy22_v2ray", "https://t.me/s/NetFreedom0"
+]
+
+
+
+BASE64_URLS = [
+    "https://raw.githubusercontent.com/AzadNetCH/Clash/refs/heads/main/AzadNet.txt","https://sub.shadowproxy66.workers.dev/sub/be80a76c-6044-417c-9bff-e587f9380d05#ShadowProxy66(1)","https://sub.shadowproxy66.workers.dev/sub/214abfe9-791e-44ba-bd8e-0afe298119f6#ShadowProxy66(2)",
 ]
 
 SEND_TO_TELEGRAM = os.getenv('SEND_TO_TELEGRAM', 'false').lower() == 'true'
@@ -54,6 +89,7 @@ TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 TELEGRAM_CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID')
 SUB_CHECKER_DIR = Path("sub-checker")
+OLDCONFIGS_DIR = Path("oldconfigs")
 
 def full_unquote(s: str) -> str:
 
@@ -97,7 +133,7 @@ def scrape_configs_from_url(url: str) -> List[str]:
         response = requests.get(url, timeout=20)
         response.raise_for_status()
 
-        channel_name = "@" + url.split("/s/")[1]
+        channel_name = "@" + url.split("/s/")[1] if "/s/" in url else "SUB"
         new_tag = f">>{channel_name}"
 
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -138,6 +174,61 @@ def scrape_configs_from_url(url: str) -> List[str]:
     except Exception as e:
         logging.error(f"Could not fetch or parse {url}: {e}")
         return []
+
+
+def scrape_configs_from_base64_url(url: str) -> List[str]:
+    configs = []
+    try:
+        response = requests.get(url, timeout=20)
+        response.raise_for_status()
+
+        content = response.text.strip()
+
+        # Add padding if needed and decode base64
+        content += '=' * (-len(content) % 4)
+        try:
+            decoded_content = base64.b64decode(content).decode('utf-8')
+        except Exception:
+            # If decoding fails, try treating content as plain text
+            decoded_content = content
+
+        pattern = r'((?:vmess|vless|ss|hy2|trojan|hysteria2)://[^\s<>"\'`]+)'
+        found_configs = re.findall(pattern, decoded_content)
+
+        new_tag = ">>SUB"
+
+        for config in found_configs:
+            if config.startswith("vmess://"):
+                try:
+                    base_part = config.split('#', 1)[0]
+                    encoded_json = base_part.replace("vmess://", "")
+                    encoded_json += '=' * (-len(encoded_json) % 4)
+
+                    decoded_bytes = base64.b64decode(encoded_json)
+
+                    try:
+                        decoded_json = decoded_bytes.decode("utf-8")
+                    except UnicodeDecodeError:
+                        decoded_json = decoded_bytes.decode("latin-1")
+
+                    vmess_data = json.loads(decoded_json)
+                    vmess_data["ps"] = new_tag
+
+                    updated_json = json.dumps(vmess_data, separators=(',', ':'))
+                    updated_b64 = base64.b64encode(updated_json.encode('utf-8')).decode('utf-8').rstrip('=')
+                    configs.append("vmess://" + updated_b64)
+                except Exception as e:
+                    logging.warning(f"Could not parse vmess config, skipping: {config[:50]}... Error: {e}")
+            else:
+                base_uri = config.split('#', 1)[0]
+                configs.append(f"{base_uri}#{new_tag}")
+
+        logging.info(f"Found and re-tagged {len(configs)} configs from base64 URL: {url}")
+        return configs
+    except Exception as e:
+        logging.error(f"Could not fetch or parse base64 URL {url}: {e}")
+        return []
+
 
 def run_sub_checker(input_configs: List[str]) -> List[str]:
 
@@ -244,7 +335,9 @@ def process_and_save_results(checked_configs: List[str]) -> Dict[str, int]:
             file_path.write_text("\n".join(configs), encoding="utf-8")
             logging.info(f"Saved {len(configs)} configs to '{file_path}'")
 
-    Path("mix/sub.html").write_text("\n".join(checked_configs), encoding="utf-8")
+    # URL-encode ">>" to "%3E%3E" for sub.html
+    encoded_configs = [config.replace(">>", "%3E%3E") for config in checked_configs]
+    Path("mix/sub.html").write_text("\n".join(encoded_configs), encoding="utf-8")
     logging.info(f"Saved {len(checked_configs)} configs to 'mix/sub.html'")
 
     for loc_code, configs in configs_by_location.items():
@@ -267,33 +360,43 @@ def process_and_save_results(checked_configs: List[str]) -> Dict[str, int]:
 def main():
     logging.info("--- Starting V2Ray Extractor ---")
 
-    logging.info("Step 1: Scraping new configs from Telegram channels...")
+    logging.info("Step 1: Scraping new configs from Telegram channels and base64 URLs...")
     all_raw_configs = []
     with ThreadPoolExecutor(max_workers=20) as executor:
         future_to_url = {executor.submit(scrape_configs_from_url, url): url for url in TELEGRAM_URLS}
+        future_to_url.update({executor.submit(scrape_configs_from_base64_url, url): url for url in BASE64_URLS})
         for future in future_to_url:
             all_raw_configs.extend(future.result())
 
     unique_new_configs = sorted(list(set(all_raw_configs)))
-    logging.info(f"Collected {len(unique_new_configs)} unique new configs from Telegram.")
+    logging.info(f"Collected {len(unique_new_configs)} unique new configs from Telegram and base64 URLs.")
 
-    logging.info("Step 2: Reading previously checked configs from 'mix/sub.html'...")
+    logging.info("Step 2: Reading previously checked configs from 'oldconfigs/configs.txt'...")
     previous_configs = []
-    previous_mix_file = Path("mix/sub.html")
-    if previous_mix_file.is_file():
+    previous_configs_file = OLDCONFIGS_DIR / "configs.txt"
+    if previous_configs_file.is_file():
         try:
-            previous_configs = previous_mix_file.read_text(encoding="utf-8").splitlines()
+            previous_configs = previous_configs_file.read_text(encoding="utf-8").splitlines()
             previous_configs = [line.strip() for line in previous_configs if '://' in line]
             previous_configs = clean_previous_configs(previous_configs)
             logging.info(f"Successfully read {len(previous_configs)} previously checked configs.")
         except Exception as e:
-            logging.error(f"Could not read or process '{previous_mix_file}': {e}")
+            logging.error(f"Could not read or process '{previous_configs_file}': {e}")
     else:
-        logging.info("No previous 'mix/sub.html' file found. Proceeding with new configs only.")
+        logging.info("No previous 'oldconfigs/configs.txt' file found. Proceeding with new configs only.")
 
+    # Filter out configs from unique_new_configs that already exist in previous_configs
+    if previous_configs:
+        previous_configs_set = set(previous_configs)
+        original_count = len(unique_new_configs)
+        unique_new_configs = [config for config in unique_new_configs if config not in previous_configs_set]
+        filtered_count = original_count - len(unique_new_configs)
+        logging.info(f"Filtered out {filtered_count} duplicate configs that already existed in previous configs.")
+        logging.info(f"Remaining new unique configs: {len(unique_new_configs)}")
 
     logging.info("Step 3: Merging new and previous configs...")
-    combined_configs = unique_new_configs + previous_configs
+    combined_configs = unique_new_configs 
+    combined_configs2 = unique_new_configs + previous_configs
 
     unique_combined_configs = sorted(list(set(combined_configs)))
     logging.info(f"Total unique configs to be tested: {len(unique_combined_configs)}")
@@ -309,6 +412,14 @@ def main():
 
     logging.info("Step 5: Processing, saving results, and getting counts...")
     protocol_counts = process_and_save_results(checked_configs)
+
+    # Save configs to oldconfigs for future runs
+    if checked_configs:
+        OLDCONFIGS_DIR.mkdir(exist_ok=True)
+        oldconfigs_file = OLDCONFIGS_DIR / "configs.txt"
+        oldconfigs_file.write_text("\n".join(combined_configs2), encoding="utf-8")
+        logging.info(f"Saved {len(checked_configs)} configs to '{oldconfigs_file}'")
+
     if SEND_TO_TELEGRAM:
         logging.info("Flag 'sendToTelegram' is true. Proceeding with Telegram notifications.")
 
@@ -338,4 +449,11 @@ def main():
 if __name__ == "__main__":
 
     main()
+
+
+
+
+
+
+
 
