@@ -74,6 +74,7 @@ TELEGRAM_URLS = [
     "https://raw.githubusercontent.com/STR97/STRUGOV/refs/heads/main/STR.BYPASS#STR.BYPASS%F0%9F%91%BE",
     "https://raw.githubusercontent.com/V2RayRoot/V2RayConfig/refs/heads/main/Config/vless.txt",
     "https://github.com/AvenCores/goida-vpn-configs/raw/refs/heads/main/githubmirror/26.txt",
+    "https://t.me/s/sogoandfuckyourlove", "https://t.me/s/lrnbymaa", "https://t.me/s/Express_freevpn", "https://t.me/s/amookashani"
 ]
 
 
@@ -447,6 +448,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
